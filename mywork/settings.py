@@ -22,11 +22,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = 'r1fkl7%_wa+_2go&q#y^l!4ptwu-3&u1y7s^)f_wl@m1=i!$hk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG')
+# DEBUG = True
 
-ALLOWED_HOSTS = ['edulicious.herokuapp.com']
+ALLOWED_HOSTS = ['edulicious.herokuapp.com', 'localhost']
 
 
 # Application definition

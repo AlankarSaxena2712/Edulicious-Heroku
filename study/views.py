@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
 from .models import Contact, CLass_1, CLass_2, CLass_3, CLass_4, CLass_5, CLass_6, CLass_7, CLass_8, CLass_9, CLass_10
 from users.models import PhoneSave
 
@@ -18,8 +19,17 @@ def contact(request):
         phone = request.POST.get('phone', '')
         query = request.POST.get('query', '')
         contact = Contact(name=name, email=email, phone=phone, query=query)
+
+        send_mail(
+                f"{name} has contacted you.",
+                f'{name} has contacted you. Their query is "{query}".',
+                'edulicious2020@gmail.com',
+                ['edulicious2020@gmail.com', 'saxenaalankar42@gmail.com'],
+                fail_silently=False,
+            )
+
         contact.save()
-        thank = True
+        thank = True 
         return render(request, 'contact.html', {'thank':thank})
     return render(request, 'contact.html')
 
