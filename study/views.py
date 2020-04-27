@@ -22,7 +22,7 @@ def contact(request):
 
         send_mail(
                 f"{name} has contacted you.",
-                f'{name} has contacted you. Their query is "{query}".',
+                f'{name} has contacted you. Their query is "{query}".\n\n Phone No : {phone}\nEmail : {email}',
                 'edulicious2020@gmail.com',
                 ['edulicious2020@gmail.com', 'saxenaalankar42@gmail.com'],
                 fail_silently=False,
