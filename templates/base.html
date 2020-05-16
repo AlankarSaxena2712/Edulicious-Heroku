@@ -13,10 +13,20 @@
     {% endblock style %}
     
     <style>
-      
+      html
+      {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+      body
+      {
+        padding-left: 25px;
+        padding-right: 25px;
+      }
       ::-webkit-scrollbar
       {
         width: 25px;
+        overflow-x: hidden;
       }
       ::-webkit-scrollbar-track
       {
@@ -37,67 +47,71 @@
     
   </head>
   <body style="color: cyan; background-color: black;">
-    
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style=" border-bottom: 6px; border-top: 0; border-left: 0; border-right: 0; border-color: greenyellow; border-style: ridge; background-color: black;">
-            <a class="navbar-brand" style="color: lime; font-family: sans-serif; font-size: 30px; font-family:cursive; font-weight: 1000; text-shadow:2px 2px blue;" href="/">EDULICIOUS</a>
+   <header class="header sticky-top">
+   <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style=" border-bottom: 6px; border-top: 0; border-left: 0; border-right: 0; border-color: greenyellow; border-style: ridge; background-color: black;">
+    <a class="navbar-brand" style="color: lime; font-family: sans-serif; font-size: 30px; font-family:cursive; font-weight: 1000; text-shadow:2px 2px blue;" href="/">EDULICIOUS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-          
+            
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <a style="color: lime; font-family: sans-serif; font-size: 25px;" class="nav-link" href="/">Home</a>
+                  <a style="color: lime; font-family: cursive; font-size: 25px;" class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" style="color: lime; font-family: sans-serif; font-size: 25px;" href="/about">About</a>
+                  <a class="nav-link" style="color: lime; font-family: cursive; font-size: 25px;" href="/about">About</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" style="color: lime; font-family: sans-serif; font-size: 25px;" href="/contact">Contact</a>
+                  <a class="nav-link" style="color: lime; font-family: cursive; font-size: 25px;" href="/contact">Contact</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" style="color: lime; font-family: sans-serif; font-size: 25px;" href="/notes">Notes</a>
+                  <a class="nav-link" style="color: lime; font-family: cursive; font-size: 25px;" href="/notes">Notes</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" style="color: lime; font-family: sans-serif; font-size: 25px;" href="/#reach">Reach Us</a>
+                  <a class="nav-link" style="color: lime; font-family: cursive; font-size: 25px;" href="/#reach">Reach Us</a>
                 </li>
               </ul>
               {% if user.is_authenticated %}
                 <ul class="navbar-nav px-3">
                   <li class="nav-item">
-                    <a class="nav-link active" style="color: lime; font-family: sans-serif; font-size: 25px;">Welcome  <strong class="mx-2">{{ user.username }}</strong></a>
+                    <a class="nav-link active" style="color: lime; font-family: cursive; font-size: 25px;">Welcome  <strong class="mx-2">{{ user.username }}</strong></a>
                   </li>
                   {% if user.username == "Alankar" %}
-                    <li class="nav-item">
-                      <a class="nav-link" style="color: lime; font-family: sans-serif; font-size: 25px;" href="/admin">Admin Panel</a>
-                    </li>
+                  <li class="nav-item">
+                    <a class="nav-link" style="color: lime; font-family: cursive; font-size: 25px;" href="/admin">Admin Panel</a>
+                  </li>
                   {% endif %}
                   <li class="nav-item">
-                    <a class="nav-link" style="color: lime; font-family: sans-serif; font-size: 25px;" href="/logout">Logout</a>
+                    <a class="nav-link" style="color: lime; font-family: cursive; font-size: 25px;" href="/logout">Logout</a>
                   </li>
                 </ul>
-              {% else %}
-              <ul class="navbar-nav px-3">
-                <li class="nav-item">
-                  <a class="nav-link" style="color: lime; font-family: sans-serif; font-size: 25px;" href="/login">Login</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" style="color: lime; font-family: sans-serif; font-size: 25px;" href="/register">Register</a>
-                </li>
-                
-              </ul>
-              {% endif %}
-            </div>
-          </nav>
-          {% if messages %}
-            {% for message in messages %}
-              <div class="alert alert-{{ message.tags }}">
-                <a class="alert-link">{{ message }}</a>
+                {% else %}
+                <ul class="navbar-nav px-3">
+                  <li class="nav-item">
+                    <a class="nav-link" style="color: lime; font-family: cursive; font-size: 25px;" href="/login">Login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" style="color: lime; font-family: cursive; font-size: 25px;" href="/register">Register</a>
+                  </li>
+                  
+                </ul>
+                {% endif %}
               </div>
+            </nav>
+            </header>
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+              <a class="alert-link">{{ message }}</a>
+            </div>
             {% endfor %}
-          {% endif %}
-        {% block body %}
-          {% endblock body %}
+            {% endif %}
+            <div id="bg">
+
+              {% block body %}
+              {% endblock body %}
+            </div>
 
         {% block js %}
         {% endblock js %}
