@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG')
 # DEBUG = True
 
-ALLOWED_HOSTS = ['edulicious.herokuapp.com']
+ALLOWED_HOSTS = ['edulicious.herokuapp.com', 'localhost']
 
 
 # Application definition
