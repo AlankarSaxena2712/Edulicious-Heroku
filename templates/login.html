@@ -6,6 +6,21 @@
 	EDULICIOUS - Login
 {% endblock title %}
 
+{% block style %}
+
+    <style>
+        #password_parent i {
+            margin-top: -26px;
+            margin-right: 10px;
+            cursor: pointer;
+            float: right;
+            color: grey;
+        }
+        
+    </style>
+
+{% endblock style %}
+
 {% block body %}
     
     <div class="container">
@@ -45,6 +60,23 @@
             alert('Thanks for registering. You will get a message or an email regarding the verification very soon!');
             document.location = "/";
         {% endif %}
+
+        document.getElementById('id_password').parentElement.setAttribute("id", 'password_parent');
+        var pass1 = document.getElementById('password_parent').innerHTML;
+        var pass2 = '<span><i class="fa fa-eye" id="togglePassword"></i></span>';
+        pass3 = document.querySelector('#id_password').insertAdjacentHTML("afterend", pass2);
+        pass1 = pass3;
+
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#id_password');
+
+        togglePassword.addEventListener('click', function (e) {
+            // toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            // toggle the eye slash icon
+            this.classList.toggle('fa-eye-slash');
+        });
     </script>
 
 {% endblock js %}

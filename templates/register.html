@@ -6,6 +6,28 @@
 	EDULICIOUS - Register
 {% endblock title %}
 
+{% block style %}
+
+    <style>
+        #password1_parent i {
+            margin-top: -26px;
+            margin-right: 10px;
+            cursor: pointer;
+            float: right;
+            color: grey;
+        }
+
+        #password2_parent i {
+            margin-top: -26px;
+            margin-right: 10px;
+            cursor: pointer;
+            float: right;
+            color: grey;
+        }
+    </style>
+
+{% endblock style %}
+
 {% block body %}
     
     <div class="container">
@@ -43,6 +65,43 @@
             alert('Thanks for registering. You will get a message or an email regarding the verification very soon!');
             document.location = "/";
         {% endif %}
+
+        document.getElementById('id_password1').parentElement.setAttribute("id", 'password1_parent');
+        var pass1 = document.getElementById('password1_parent').innerHTML;
+        var hintPass1 = document.getElementById('hint_id_password1').innerHTML;
+        var pass2 = '<span><i class="fa fa-eye" id="togglePassword1"></i></span>';
+        pass3 = document.querySelector('#id_password1').insertAdjacentHTML("afterend", pass2);
+        pass1 = pass3 + hintPass1;
+
+        const togglePassword1 = document.querySelector('#togglePassword1');
+        const password1 = document.querySelector('#id_password1');
+
+        togglePassword1.addEventListener('click', function (e) {
+            // toggle the type attribute
+            const type = password1.getAttribute('type') === 'password' ? 'text' : 'password';
+            password1.setAttribute('type', type);
+            // toggle the eye slash icon
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        document.getElementById('id_password2').parentElement.setAttribute("id", 'password2_parent');
+        var pass4 = document.getElementById('password2_parent').innerHTML;
+        var hintPass2 = document.getElementById('hint_id_password2').innerHTML;
+        var pass5 = '<span><i class="fa fa-eye" id="togglePassword2"></i></span>';
+        pass6 = document.querySelector('#id_password2').insertAdjacentHTML("afterend", pass5);
+        pass4 = pass6 + hintPass2;
+
+        const togglePassword2 = document.querySelector('#togglePassword2');
+        const password2 = document.querySelector('#id_password2');
+
+        togglePassword2.addEventListener('click', function (e) {
+            // toggle the type attribute
+            const type = password1.getAttribute('type') === 'password' ? 'text' : 'password';
+            password2.setAttribute('type', type);
+            // toggle the eye slash icon
+            this.classList.toggle('fa-eye-slash');
+        });
+
     </script>
 
 {% endblock js %}

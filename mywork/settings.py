@@ -21,12 +21,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = os.environ.get('SECRET_KEY')
-SECRET_KEY = 'r1fkl7%_wa+_2go&q#y^l!4ptwu-3&u1y7s^)f_wl@m1=i!$hk'
+SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = 'r1fkl7%_wa+_2go&q#y^l!4ptwu-3&u1y7s^)f_wl@m1=i!$hk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = os.environ.get('DEBUG')
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['edulicious.herokuapp.com', 'localhost']
 
@@ -140,8 +140,8 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 465
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
-EMAIL_HOST_USER = os.environ.get('USER_EMAIL')
-EMAIL_HOST_PASSWORD = os.environ.get('USER_EMAIL_PASS')
+EMAIL_HOST_USER = 'edulicious2020@gmail.com'
+EMAIL_HOST_PASSWORD = '2712@Alankar'
 
 ADMINS = [('Alankar', 'saxenaalankar42@gmail.com')]
 
