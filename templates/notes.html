@@ -51,7 +51,7 @@ EDULICIOUS - Notes
         max-width: 130px;
         height: 230px;
         width: 130px;
-        margin: 28px;
+        margin: 20px;
         background-color: #2e2e2cf8;
         border-radius: 20px 70px 20px 20px;
         margin-left: 33%;
@@ -64,6 +64,7 @@ EDULICIOUS - Notes
         font-size: inherit;
         font-weight: 500;
         text-decoration: none;
+        overflow: hidden;
     }
 
     .card-text:hover {
@@ -112,7 +113,7 @@ EDULICIOUS - Notes
                 <div class="tab-pane fade active show" id="v-cls_1" role="tabpanel" aria-labelledby="v-cls_1-tab">
                     {% for i in clas_1 %}
                     <div class="card mx-auto">
-                        <a href="{{ i.file_link }}" target="_blank" class="text-center">
+                        <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank" class="text-center">
                             <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
                             <div class="card-body">
                                 <div class="card-text">
@@ -131,7 +132,7 @@ EDULICIOUS - Notes
                 <div class="tab-pane fade active show" id="v-cls_2" role="tabpanel" aria-labelledby="v-cls_2-tab">
                     {% for i in clas_2 %}
                     <div class="card mx-auto">
-                        <a href="{{ i.file_link }}" target="_blank">
+                        <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
                             <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
                             <div class="card-body">
                                 <div class="card-text">
@@ -150,7 +151,7 @@ EDULICIOUS - Notes
                 <div class="tab-pane fade active show" id="v-cls_3" role="tabpanel" aria-labelledby="v-cls_3-tab">
                     {% for i in clas_3 %}
                     <div class="card mx-auto">
-                        <a href="{{ i.file_link }}" target="_blank">
+                        <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
                             <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
                             <div class="card-body">
                                 <div class="card-text">
@@ -169,7 +170,7 @@ EDULICIOUS - Notes
                 <div class="tab-pane fade active show" id="v-cls_4" role="tabpanel" aria-labelledby="v-cls_4-tab">
                     {% for i in clas_4 %}
                     <div class="card mx-auto">
-                        <a href="{{ i.file_link }}" target="_blank">
+                        <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
                             <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
                             <div class="card-body">
                                 <div class="card-text">
@@ -188,7 +189,7 @@ EDULICIOUS - Notes
                 <div class="tab-pane fade active show" id="v-cls_5" role="tabpanel" aria-labelledby="v-cls_5-tab">
                     {% for i in clas_5 %}
                     <div class="card mx-auto">
-                        <a href="{{ i.file_link }}" target="_blank">
+                        <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
                             <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
                             <div class="card-body">
                                 <div class=" card-body card-text">
@@ -207,7 +208,7 @@ EDULICIOUS - Notes
                 <div class="tab-pane fade active show" id="v-cls_6" role="tabpanel" aria-labelledby="v-cls_6-tab">
                     {% for i in clas_6 %}
                     <div class="card mx-auto">
-                        <a href="{{ i.file_link }}" target="_blank">
+                        <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
                             <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
                             <div class="card-body">
                                 <div class="card-text">
@@ -226,7 +227,7 @@ EDULICIOUS - Notes
                 <div class="tab-pane fade active show" id="v-cls_7" role="tabpanel" aria-labelledby="v-cls_7-tab">
                     {% for i in clas_7 %}
                     <div class="card mx-auto">
-                        <a href="{{ i.file_link }}" target="_blank">
+                        <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
                             <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
                             <div class="card-body">
                                 <div class="card-text">
@@ -245,7 +246,7 @@ EDULICIOUS - Notes
                 <div class="tab-pane fade active show" id="v-cls_8" role="tabpanel" aria-labelledby="v-cls_8-tab">
                     {% for i in clas_8 %}
                     <div class="card mx-auto">
-                        <a href="{{ i.file_link }}" target="_blank">
+                        <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
                             <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
                             <div class="card-body">
                                 <div class="card-text">
@@ -264,7 +265,7 @@ EDULICIOUS - Notes
                 <div class="tab-pane fade active show" id="v-cls_9" role="tabpanel" aria-labelledby="v-cls_9-tab">
                     {% for i in clas_9 %}
                     <div class="card mx-auto">
-                        <a href="{{ i.file_link }}" target="_blank">
+                        <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
                             <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
                             <div class="card-body">
                                 <div class="card-text">
@@ -283,7 +284,7 @@ EDULICIOUS - Notes
                 <div class="tab-pane fade active show" id="v-cls_10" role="tabpanel" aria-labelledby="v-cls_10-tab">
                     {% for i in clas_10 %}
                     <div class="card mx-auto">
-                        <a href="{{ i.file_link }}" target="_blank">
+                        <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
                             <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
                             <div class="card-body">
                                 <div class="card-text">

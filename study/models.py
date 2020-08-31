@@ -14,7 +14,7 @@ class Contact(models.Model):
 class CLass_1(models.Model):
     s_no = models.AutoField(primary_key=True)
     file_name = models.CharField(max_length=100)
-    file_link = models.CharField(max_length=500)
+    file_upload = models.FileField(upload_to='class_1/', default='')
 
     def __str__(self):
         return self.file_name
@@ -22,7 +22,7 @@ class CLass_1(models.Model):
 class CLass_2(models.Model):
     s_no = models.AutoField(primary_key=True)
     file_name = models.CharField(max_length=100)
-    file_link = models.CharField(max_length=500)
+    file_upload = models.FileField(upload_to='class_2/', default='')
 
     def __str__(self):
         return self.file_name
@@ -30,7 +30,7 @@ class CLass_2(models.Model):
 class CLass_3(models.Model):
     s_no = models.AutoField(primary_key=True)
     file_name = models.CharField(max_length=100)
-    file_link = models.CharField(max_length=500)
+    file_upload = models.FileField(upload_to='class_3/', default='')
 
     def __str__(self):
         return self.file_name
@@ -38,7 +38,7 @@ class CLass_3(models.Model):
 class CLass_4(models.Model):
     s_no = models.AutoField(primary_key=True)
     file_name = models.CharField(max_length=100)
-    file_link = models.CharField(max_length=500)
+    file_upload = models.FileField(upload_to='class_4/', default='')
 
     def __str__(self):
         return self.file_name
@@ -46,7 +46,7 @@ class CLass_4(models.Model):
 class CLass_5(models.Model):
     s_no = models.AutoField(primary_key=True)
     file_name = models.CharField(max_length=100)
-    file_link = models.CharField(max_length=500)
+    file_upload = models.FileField(upload_to='class_5/', default='')
 
     def __str__(self):
         return self.file_name
@@ -54,7 +54,7 @@ class CLass_5(models.Model):
 class CLass_6(models.Model):
     s_no = models.AutoField(primary_key=True)
     file_name = models.CharField(max_length=100)
-    file_link = models.CharField(max_length=500)
+    file_upload = models.FileField(upload_to='class_6/', default='')
 
     def __str__(self):
         return self.file_name
@@ -62,7 +62,7 @@ class CLass_6(models.Model):
 class CLass_7(models.Model):
     s_no = models.AutoField(primary_key=True)
     file_name = models.CharField(max_length=100)
-    file_link = models.CharField(max_length=500)
+    file_upload = models.FileField(upload_to='class_7/', default='')
 
     def __str__(self):
         return self.file_name
@@ -70,7 +70,7 @@ class CLass_7(models.Model):
 class CLass_8(models.Model):
     s_no = models.AutoField(primary_key=True)
     file_name = models.CharField(max_length=100)
-    file_link = models.CharField(max_length=500)
+    file_upload = models.FileField(upload_to='class_8/', default='')
 
     def __str__(self):
         return self.file_name
@@ -78,7 +78,7 @@ class CLass_8(models.Model):
 class CLass_9(models.Model):
     s_no = models.AutoField(primary_key=True)
     file_name = models.CharField(max_length=100)
-    file_link = models.CharField(max_length=500)
+    file_upload = models.FileField(upload_to='class_9/', default='')
 
     def __str__(self):
         return self.file_name
@@ -86,7 +86,7 @@ class CLass_9(models.Model):
 class CLass_10(models.Model):
     s_no = models.AutoField(primary_key=True)
     file_name = models.CharField(max_length=100)
-    file_link = models.CharField(max_length=500)
+    file_upload = models.FileField(upload_to='class_10/', default='')
 
     def __str__(self):
         return self.file_name
