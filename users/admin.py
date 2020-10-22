@@ -4,11 +4,11 @@ from .models import PhoneSave
 
 # Register your models here.
 admin.site.site_header = "EDULICIOUS"
-admin.site.register(PhoneSave)
+# admin.site.register(PhoneSave)
 
-class User(admin.ModelAdmin):
+class UserAdmin(admin.ModelAdmin):
     list_display = ('username', 'phone_number', 'email')
 
-
-class PhomeSave(admin.ModelAdmin):
-    list_display = ('name', 'phone_number', 'timestamp')
+@admin.register(PhoneSave)
+class PhomeSaveAdmin(admin.ModelAdmin):
+    list_display = ['name', 'phone_number','stud_class', 'verified']

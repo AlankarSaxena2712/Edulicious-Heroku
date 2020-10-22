@@ -74,7 +74,46 @@ EDULICIOUS - Notes
 
     a, a:hover {
         text-emphasis: none;
+        text-decoration: none;
     }
+
+    .nav-pills .pill-1 .nav-link:not(.active) {
+        background-color: black;
+        color: rgb(171, 209, 66);
+        font-weight: 900;
+    }
+
+    .nav-pills .pill-2 .nav-link:not(.active) {
+        background-color: black;
+        color: rgb(171, 209, 66);
+        font-weight: 900;
+    }
+
+    .nav-pills .pill-3 .nav-link:not(.active) {
+        background-color: black;
+        color: rgb(171, 209, 66);
+        font-weight: 900;
+    }
+
+    /* active (faded) */
+    .nav-pills .pill-1 .nav-link {
+        background-color: greenyellow;
+        color: blue;
+        font-weight: 900;
+    }
+
+    .nav-pills .pill-2 .nav-link {
+        background-color: greenyellow;
+        color: blue;
+        font-weight: 900;
+    }
+
+    .nav-pills .pill-3 .nav-link {
+        background-color: greenyellow;
+        color: blue;
+        font-weight: 900;
+    }
+
 </style>
 
 {% endblock style %}
@@ -106,199 +145,644 @@ EDULICIOUS - Notes
             Class 10
         {% endif %}
     </h1>
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="nav nav-pills ml-1" id="pills-tab" role="tablist">
+                <li class="nav-item pill-1" role="presentation">
+                    <a class="nav-link active" id="pills-maths-tab" data-toggle="pill" href="#pills-maths" role="tab" aria-controls="pills-maths" aria-selected="true"><h5>Maths</h5></a>
+                </li>
+                <li class="nav-item pill-2" role="presentation">
+                    <a class="nav-link" id="pills-science-tab" data-toggle="pill" href="#pills-science" role="tab" aria-controls="pills-science" aria-selected="false"><h5>Science</h5></a>
+                </li>
+                <li class="nav-item pill-3" role="presentation">
+                    <a class="nav-link" id="pills-others-tab" data-toggle="pill" href="#pills-others" role="tab" aria-controls="pills-others" aria-selected="false"><h5>Others</h5></a>
+                </li>
+            </ul>
+        </div>
+    </div>
     <div class="row mt-4">
         <div class="col-md-12">
             <div class="tab-content" id="v-tabContent">
                 {% if show_1 %}
-                <div class="tab-pane fade active show" id="v-cls_1" role="tabpanel" aria-labelledby="v-cls_1-tab">
-                    {% for i in clas_1 %}
-                    <div class="card mx-auto">
-                        <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank" class="text-center">
-                            <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
-                            <div class="card-body">
-                                <div class="card-text">
-                                    {% if i.file_name|length > 25 %}
-                                        {{ i.file_name|slice:25 }}...
-                                    {% else %}
-                                        {{ i.file_name }}
-                                    {% endif %}
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-maths" role="tabpanel" aria-labelledby="pills-maths-tab">
+                        {% for i in clas_1 %}
+                            {% if i.subject == 'Maths' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div>
-                        </a>
+                            {% endif %}
+                        {% endfor %}
                     </div>
-                    {% endfor %}
-                </div>
+                    <div class="tab-pane fade" id="pills-science" role="tabpanel" aria-labelledby="pills-science-tab">
+                        {% for i in clas_1 %}
+                            {% if i.subject == 'Science' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="tab-pane fade" id="pills-others" role="tabpanel" aria-labelledby="pills-others-tab">
+                        {% for i in clas_1 %}
+                            {% if i.subject == 'Others' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
                 {% elif show_2 %}
-                <div class="tab-pane fade active show" id="v-cls_2" role="tabpanel" aria-labelledby="v-cls_2-tab">
-                    {% for i in clas_2 %}
-                    <div class="card mx-auto">
-                        <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
-                            <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
-                            <div class="card-body">
-                                <div class="card-text">
-                                    {% if i.file_name|length > 25 %}
-                                        {{ i.file_name|slice:25 }}...
-                                    {% else %}
-                                        {{ i.file_name }}
-                                    {% endif %}
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-maths" role="tabpanel" aria-labelledby="pills-maths-tab">
+                        {% for i in clas_2 %}
+                            {% if i.subject == 'Maths' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div>
-                        </a>
+                            {% endif %}
+                        {% endfor %}
                     </div>
-                    {% endfor %}
-                </div>
+                    <div class="tab-pane fade" id="pills-science" role="tabpanel" aria-labelledby="pills-science-tab">
+                        {% for i in clas_2 %}
+                            {% if i.subject == 'Science' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="tab-pane fade" id="pills-others" role="tabpanel" aria-labelledby="pills-others-tab">
+                        {% for i in clas_2 %}
+                            {% if i.subject == 'Others' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
                 {% elif show_3 %}
-                <div class="tab-pane fade active show" id="v-cls_3" role="tabpanel" aria-labelledby="v-cls_3-tab">
-                    {% for i in clas_3 %}
-                    <div class="card mx-auto">
-                        <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
-                            <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
-                            <div class="card-body">
-                                <div class="card-text">
-                                    {% if i.file_name|length > 25 %}
-                                        {{ i.file_name|slice:25 }}...
-                                    {% else %}
-                                        {{ i.file_name }}
-                                    {% endif %}
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-maths" role="tabpanel" aria-labelledby="pills-maths-tab">
+                        {% for i in clas_3 %}
+                            {% if i.subject == 'Maths' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div>
-                        </a>
+                            {% endif %}
+                        {% endfor %}
                     </div>
-                    {% endfor %}
-                </div>
+                    <div class="tab-pane fade" id="pills-science" role="tabpanel" aria-labelledby="pills-science-tab">
+                        {% for i in clas_3 %}
+                            {% if i.subject == 'Science' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="tab-pane fade" id="pills-others" role="tabpanel" aria-labelledby="pills-others-tab">
+                        {% for i in clas_3 %}
+                            {% if i.subject == 'Others' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
                 {% elif show_4 %}
-                <div class="tab-pane fade active show" id="v-cls_4" role="tabpanel" aria-labelledby="v-cls_4-tab">
-                    {% for i in clas_4 %}
-                    <div class="card mx-auto">
-                        <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
-                            <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
-                            <div class="card-body">
-                                <div class="card-text">
-                                    {% if i.file_name|length > 25 %}
-                                        {{ i.file_name|slice:25 }}...
-                                    {% else %}
-                                        {{ i.file_name }}
-                                    {% endif %}
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-maths" role="tabpanel" aria-labelledby="pills-maths-tab">
+                        {% for i in clas_4 %}
+                            {% if i.subject == 'Maths' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div>
-                        </a>
+                            {% endif %}
+                        {% endfor %}
                     </div>
-                    {% endfor %}
-                </div>
+                    <div class="tab-pane fade" id="pills-science" role="tabpanel" aria-labelledby="pills-science-tab">
+                        {% for i in clas_4 %}
+                            {% if i.subject == 'Science' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="tab-pane fade" id="pills-others" role="tabpanel" aria-labelledby="pills-others-tab">
+                        {% for i in clas_4 %}
+                            {% if i.subject == 'Others' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
                 {% elif show_5 %}
-                <div class="tab-pane fade active show" id="v-cls_5" role="tabpanel" aria-labelledby="v-cls_5-tab">
-                    {% for i in clas_5 %}
-                    <div class="card mx-auto">
-                        <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
-                            <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
-                            <div class="card-body">
-                                <div class=" card-body card-text">
-                                    {% if i.file_name|length > 25 %}
-                                        {{ i.file_name|slice:25 }}...
-                                    {% else %}
-                                        {{ i.file_name }}
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    {% endfor %}
-                </div>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-maths" role="tabpanel" aria-labelledby="pills-maths-tab">
+                            {% for i in clas_5 %}
+                                {% if i.subject == 'Maths' %}
+                                    <div class="card mx-auto">
+                                        <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                            <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                            <div class="card-body">
+                                                <div class=" card-body card-text">
+                                                    {% if i.file_name|length > 25 %}
+                                                        {{ i.file_name|slice:25 }}...
+                                                    {% else %}
+                                                        {{ i.file_name }}
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="tab-pane fade" id="pills-science" role="tabpanel" aria-labelledby="pills-science-tab">
+                            {% for i in clas_5 %}
+                                {% if i.subject == 'Science' %}
+                                    <div class="card mx-auto">
+                                        <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                            <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                            <div class="card-body">
+                                                <div class=" card-body card-text">
+                                                    {% if i.file_name|length > 25 %}
+                                                        {{ i.file_name|slice:25 }}...
+                                                    {% else %}
+                                                        {{ i.file_name }}
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="tab-pane fade" id="pills-others" role="tabpanel" aria-labelledby="pills-others-tab">
+                            {% for i in clas_5 %}
+                                {% if i.subject == 'Others' %}
+                                    <div class="card mx-auto">
+                                        <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                            <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                            <div class="card-body">
+                                                <div class=" card-body card-text">
+                                                    {% if i.file_name|length > 25 %}
+                                                        {{ i.file_name|slice:25 }}...
+                                                    {% else %}
+                                                        {{ i.file_name }}
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
                 {% elif show_6 %}
-                <div class="tab-pane fade active show" id="v-cls_6" role="tabpanel" aria-labelledby="v-cls_6-tab">
-                    {% for i in clas_6 %}
-                    <div class="card mx-auto">
-                        <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
-                            <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
-                            <div class="card-body">
-                                <div class="card-text">
-                                    {% if i.file_name|length > 25 %}
-                                        {{ i.file_name|slice:25 }}...
-                                    {% else %}
-                                        {{ i.file_name }}
-                                    {% endif %}
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-maths" role="tabpanel" aria-labelledby="pills-maths-tab">
+                        {% for i in clas_6 %}
+                            {% if i.subject == 'Maths' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div>
-                        </a>
+                            {% endif %}
+                        {% endfor %}
                     </div>
-                    {% endfor %}
-                </div>
+                    <div class="tab-pane fade" id="pills-science" role="tabpanel" aria-labelledby="pills-science-tab">
+                        {% for i in clas_6 %}
+                            {% if i.subject == 'Science' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="tab-pane fade" id="pills-others" role="tabpanel" aria-labelledby="pills-others-tab">
+                        {% for i in clas_6 %}
+                            {% if i.subject == 'Others' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
                 {% elif show_7 %}
-                <div class="tab-pane fade active show" id="v-cls_7" role="tabpanel" aria-labelledby="v-cls_7-tab">
-                    {% for i in clas_7 %}
-                    <div class="card mx-auto">
-                        <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
-                            <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
-                            <div class="card-body">
-                                <div class="card-text">
-                                    {% if i.file_name|length > 25 %}
-                                        {{ i.file_name|slice:25 }}...
-                                    {% else %}
-                                        {{ i.file_name }}
-                                    {% endif %}
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-maths" role="tabpanel" aria-labelledby="pills-maths-tab">
+                        {% for i in clas_7 %}
+                            {% if i.subject == 'Maths' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div>
-                        </a>
+                            {% endif %}
+                        {% endfor %}
                     </div>
-                    {% endfor %}
-                </div>
+                    <div class="tab-pane fade" id="pills-science" role="tabpanel" aria-labelledby="pills-science-tab">
+                        {% for i in clas_7 %}
+                            {% if i.subject == 'Science' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="tab-pane fade" id="pills-others" role="tabpanel" aria-labelledby="pills-others-tab">
+                        {% for i in clas_7 %}
+                            {% if i.subject == 'Others' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
                 {% elif show_8 %}
-                <div class="tab-pane fade active show" id="v-cls_8" role="tabpanel" aria-labelledby="v-cls_8-tab">
-                    {% for i in clas_8 %}
-                    <div class="card mx-auto">
-                        <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
-                            <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
-                            <div class="card-body">
-                                <div class="card-text">
-                                    {% if i.file_name|length > 25 %}
-                                        {{ i.file_name|slice:25 }}...
-                                    {% else %}
-                                        {{ i.file_name }}
-                                    {% endif %}
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-maths" role="tabpanel" aria-labelledby="pills-maths-tab">
+                        {% for i in clas_8 %}
+                            {% if i.subject == 'Maths' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div>
-                        </a>
+                            {% endif %}
+                        {% endfor %}
                     </div>
-                    {% endfor %}
-                </div>
+                    <div class="tab-pane fade" id="pills-science" role="tabpanel" aria-labelledby="pills-science-tab">
+                        {% for i in clas_8 %}
+                            {% if i.subject == 'Science' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="tab-pane fade" id="pills-others" role="tabpanel" aria-labelledby="pills-others-tab">
+                        {% for i in clas_8 %}
+                            {% if i.subject == 'Others' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
                 {% elif show_9 %}
-                <div class="tab-pane fade active show" id="v-cls_9" role="tabpanel" aria-labelledby="v-cls_9-tab">
-                    {% for i in clas_9 %}
-                    <div class="card mx-auto">
-                        <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
-                            <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
-                            <div class="card-body">
-                                <div class="card-text">
-                                    {% if i.file_name|length > 25 %}
-                                        {{ i.file_name|slice:25 }}...
-                                    {% else %}
-                                        {{ i.file_name }}
-                                    {% endif %}
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-maths" role="tabpanel" aria-labelledby="pills-maths-tab">
+                        {% for i in clas_9 %}
+                            {% if i.subject == 'Maths' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div>
-                        </a>
+                            {% endif %}
+                        {% endfor %}
                     </div>
-                    {% endfor %}
-                </div>
+                    <div class="tab-pane fade" id="pills-science" role="tabpanel" aria-labelledby="pills-science-tab">
+                        {% for i in clas_9 %}
+                            {% if i.subject == 'Science' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="tab-pane fade" id="pills-others" role="tabpanel" aria-labelledby="pills-others-tab">
+                        {% for i in clas_9 %}
+                            {% if i.subject == 'Others' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
                 {% elif show_10 %}
-                <div class="tab-pane fade active show" id="v-cls_10" role="tabpanel" aria-labelledby="v-cls_10-tab">
-                    {% for i in clas_10 %}
-                    <div class="card mx-auto">
-                        <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
-                            <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
-                            <div class="card-body">
-                                <div class="card-text">
-                                    {% if i.file_name|length > 25 %}
-                                        {{ i.file_name|slice:25 }}...
-                                    {% else %}
-                                        {{ i.file_name }}
-                                    {% endif %}
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-maths" role="tabpanel" aria-labelledby="pills-maths-tab">
+                        {% for i in clas_10 %}
+                            {% if i.subject == 'Maths' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div>
-                        </a>
+                            {% endif %}
+                        {% endfor %}
                     </div>
-                    {% endfor %}
-                </div>
+                    <div class="tab-pane fade" id="pills-science" role="tabpanel" aria-labelledby="pills-science-tab">
+                        {% for i in clas_10 %}
+                            {% if i.subject == 'Science' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="tab-pane fade" id="pills-others" role="tabpanel" aria-labelledby="pills-others-tab">
+                        {% for i in clas_10 %}
+                            {% if i.subject == 'Others' %}
+                                <div class="card mx-auto">
+                                    <a href="https://edulicious-files.s3.amazonaws.com/{{ i.file_upload }}" target="_blank">
+                                        <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                                        <div class="card-body">
+                                            <div class=" card-body card-text">
+                                                {% if i.file_name|length > 25 %}
+                                                    {{ i.file_name|slice:25 }}...
+                                                {% else %}
+                                                    {{ i.file_name }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
                 {% endif %}
             </div>
         </div>
