@@ -23,6 +23,7 @@ class CLass_1(models.Model):
     file_name = models.CharField(max_length=100)
     file_upload = models.FileField(upload_to='class_1/', blank=True, default='')
     subject = models.CharField(choices=SUBJECT_CHOICES, default='Maths', max_length=20)
+    file_link = models.URLField(max_length=600, null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -36,6 +37,7 @@ class CLass_2(models.Model):
     file_name = models.CharField(max_length=100)
     file_upload = models.FileField(upload_to='class_2/', blank=True, default='')
     subject = models.CharField(choices=SUBJECT_CHOICES, default='Maths', max_length=20)
+    file_link = models.URLField(max_length=600, null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -49,6 +51,7 @@ class CLass_3(models.Model):
     file_name = models.CharField(max_length=100)
     file_upload = models.FileField(upload_to='class_3/', blank=True, default='')
     subject = models.CharField(choices=SUBJECT_CHOICES, default='Maths', max_length=20)
+    file_link = models.URLField(max_length=600, null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -62,6 +65,7 @@ class CLass_4(models.Model):
     file_name = models.CharField(max_length=100)
     file_upload = models.FileField(upload_to='class_4/', blank=True, default='')
     subject = models.CharField(choices=SUBJECT_CHOICES, default='Maths', max_length=20)
+    file_link = models.URLField(max_length=600, null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -75,6 +79,7 @@ class CLass_5(models.Model):
     file_name = models.CharField(max_length=100)
     file_upload = models.FileField(upload_to='class_5/', blank=True, default='')
     subject = models.CharField(choices=SUBJECT_CHOICES, default='Maths', max_length=20)
+    file_link = models.URLField(max_length=600, null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -88,6 +93,7 @@ class CLass_6(models.Model):
     file_name = models.CharField(max_length=100)
     file_upload = models.FileField(upload_to='class_6/', blank=True, default='')
     subject = models.CharField(choices=SUBJECT_CHOICES, default='Maths', max_length=20)
+    file_link = models.URLField(max_length=600, null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -101,6 +107,7 @@ class CLass_7(models.Model):
     file_name = models.CharField(max_length=100)
     file_upload = models.FileField(upload_to='class_7/', blank=True, default='')
     subject = models.CharField(choices=SUBJECT_CHOICES, default='Maths', max_length=20)
+    file_link = models.URLField(max_length=600, null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -114,6 +121,7 @@ class CLass_8(models.Model):
     file_name = models.CharField(max_length=100)
     file_upload = models.FileField(upload_to='class_8/', blank=True, default='')
     subject = models.CharField(choices=SUBJECT_CHOICES, default='Maths', max_length=20)
+    file_link = models.URLField(max_length=600, null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -127,6 +135,7 @@ class CLass_9(models.Model):
     file_name = models.CharField(max_length=100)
     file_upload = models.FileField(upload_to='class_9/', blank=True, default='')
     subject = models.CharField(choices=SUBJECT_CHOICES, default='Maths', max_length=20)
+    file_link = models.URLField(max_length=600, null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -140,6 +149,7 @@ class CLass_10(models.Model):
     file_name = models.CharField(max_length=100)
     file_upload = models.FileField(upload_to='class_10/', blank=True, default='')
     subject = models.CharField(choices=SUBJECT_CHOICES, default='Maths', max_length=20)
+    file_link = models.URLField(max_length=600, null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 
     class Meta:

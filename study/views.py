@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib import messages
 from django.core.mail import send_mail
 from .models import Contact, CLass_1, CLass_2, CLass_3, CLass_4, CLass_5, CLass_6, CLass_7, CLass_8, CLass_9, CLass_10
 from users.models import PhoneSave
@@ -85,3 +86,52 @@ def notes(request):
                 show_10 = True
                 clas_10 = CLass_10.objects.all()
                 return render(request, 'notes.html', {'show_10':show_10, 'clas_10':clas_10})
+
+def add_notes(request):
+    if request.method == 'POST':
+        name = request.POST.get('fileName')
+        for_class = request.POST.get('classSelect')
+        subject = request.POST.get('subject')
+        file_link = request.POST.get('link')
+        if for_class == '1':
+            cls_1 = CLass_1.objects.create(file_name=name, subject=subject, file_link=file_link)
+            cls_1.save()
+            messages.success(request, f'Succesfully added {name}')
+        elif for_class == '2':
+            cls_1 = CLass_2.objects.create(file_name=name, subject=subject, file_link=file_link)
+            cls_1.save()
+            messages.success(request, f'Succesfully added {name}')
+        elif for_class == '3':
+            cls_1 = CLass_3.objects.create(file_name=name, subject=subject, file_link=file_link)
+            cls_1.save()
+            messages.success(request, f'Succesfully added {name}')
+        elif for_class == '4':
+            cls_1 = CLass_4.objects.create(file_name=name, subject=subject, file_link=file_link)
+            cls_1.save()
+            messages.success(request, f'Succesfully added {name}')
+        elif for_class == '5':
+            cls_1 = CLass_5.objects.create(file_name=name, subject=subject, file_link=file_link)
+            cls_1.save()
+            messages.success(request, f'Succesfully added {name}')
+        elif for_class == '6':
+            cls_1 = CLass_6.objects.create(file_name=name, subject=subject, file_link=file_link)
+            cls_1.save()
+            messages.success(request, f'Succesfully added {name}')
+        elif for_class == '7':
+            cls_1 = CLass_7.objects.create(file_name=name, subject=subject, file_link=file_link)
+            cls_1.save()
+            messages.success(request, f'Succesfully added {name}')
+        elif for_class == '8':
+            cls_1 = CLass_8.objects.create(file_name=name, subject=subject, file_link=file_link)
+            cls_1.save()
+            messages.success(request, f'Succesfully added {name}')
+        elif for_class == '9':
+            cls_1 = CLass_9.objects.create(file_name=name, subject=subject, file_link=file_link)
+            cls_1.save()
+            messages.success(request, f'Succesfully added {name}')
+        elif for_class == '10':
+            cls_1 = CLass_10.objects.create(file_name=name, subject=subject, file_link=file_link)
+            cls_1.save()
+            messages.success(request, f'Succesfully added {name}')
+        return redirect('add-notes')
+    return render(request, 'addNotes.html')

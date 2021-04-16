@@ -48,6 +48,14 @@
     {% block title %}
     {% endblock title %}
     </title>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>
     
   </head>
   <body style="color: cyan; background-color: black;">
@@ -81,12 +89,16 @@
               </ul>
               {% if user.is_authenticated %}
               <ul class="navbar-nav px-3">
-                  <li class="nav-item">
+                <li class="nav-item">
+                    {% if request.user.is_superuser %}
+                    <a href="/admin" class="nav-link active" style="color: lime; font-family: cursive; font-size: 25px;">Welcome  <strong class="mx-2">{{ user.username }}</strong></a>
+                    {% else %}
                     <a class="nav-link active" style="color: lime; font-family: cursive; font-size: 25px;">Welcome  <strong class="mx-2">{{ user.username }}</strong></a>
+                    {% endif %}
                   </li>
-                  {% if user.username == "Alankar" %}
+                  {% if request.user.is_superuser %}
                   <li class="nav-item">
-                    <a class="nav-link" style="color: lime; font-family: cursive; font-size: 25px;" href="/admin">Admin Panel</a>
+                    <a class="nav-link" style="color: lime; font-family: cursive; font-size: 25px;" href="/add-notes">Add Notes</a>
                   </li>
                   {% endif %}
                   <li class="nav-item">

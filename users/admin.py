@@ -12,3 +12,4 @@ class UserAdmin(admin.ModelAdmin):
 @admin.register(PhoneSave)
 class PhomeSaveAdmin(admin.ModelAdmin):
     list_display = ['name', 'phone_number','stud_class', 'verified']
+    list_editable = ['stud_class']
