@@ -65,8 +65,8 @@
             projectId: "edulicious-ab8a7",
             storageBucket: "edulicious-ab8a7.appspot.com",
             messagingSenderId: "345540697125",
-            appId: "1:345540697125:web:0c97960f15351851b7f3cc",
-            measurementId: "G-6J8PY75JKM"
+            appId: "1:345540697125:web:0e692e63e527822bb7f3cc",
+            measurementId: "G-ZMJQR61HQQ"
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
@@ -82,6 +82,7 @@
             thisRef.put(file).then((snapshot) => {
                 var ref = storage.ref().child(file.name);
                 ref.getDownloadURL().then((url) => {
+                    console.log(url)
                     form.value = url;
                 }).catch((error) => {
                     console.log(error);

@@ -26,7 +26,7 @@ SECRET_KEY = 'r1fkl7%_wa+_2go&q#y^l!4ptwu-3&u1y7s^)f_wl@m1=i!$hk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = os.environ.get('DEBUG')
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
